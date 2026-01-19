@@ -18,7 +18,7 @@ flowchart TD
     end
     subgraph R[<div style="width:30em; height:8em; display:flex; justify-content: flex-start;">Raspberry Pi Pico</div>]
         I[Pi Pico Init]
-        subgraph PIO
+        subgraph PIO [<div style="width:30em; height:8em; display:flex; justify-content: flex-start;">PIO</div>]
         A[Offset Square Wave Pulse]
         end
         subgraph Core 1
