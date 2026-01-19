@@ -30,6 +30,7 @@ flowchart TD
         U[Send Data over UART]
         end
     end
+    B[USB Bridge]
     I -->|Initializes Cores| G[Gather Entropy]
     I -->|Loads PIO Program| A
     D -->|ADC read| G
@@ -41,7 +42,7 @@ flowchart TD
     A  -->|Drives| L
     L e1@==>|pulses sent through fiber network| D
     e1@{ animate: true }
-
+    U ==>|Serial Connection| B
 ```
 
 ## Optical Assembly
