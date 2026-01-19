@@ -48,3 +48,7 @@ flowchart TD
 ## Optical Assembly
 
 ![](images/PD-QRNG.drawio.svg)
+
+This is what the system looks like in hardware:
+
+![PD-QRNG-v1](images/pd-qrng-v1.jpg)
