@@ -8,7 +8,7 @@ Here's an overview of what's going on here:
 
 ```mermaid
 ---
-title: # PD-QRNG Process Flow
+title: <h1>PD-QRNG Process Flow</h1>
 ---
 
 flowchart TD
