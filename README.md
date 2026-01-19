@@ -11,7 +11,7 @@ Here's an overview of what's going on here:
 title: PD-QRNG Process Flow
 ---
 
-flowchart TD
+flowchart LR
     subgraph Fiber Optics
     L[Laser Diode]
     D[Detector]
