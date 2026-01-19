@@ -16,9 +16,9 @@ flowchart TD
     L[Laser Diode]
     D[Detector]
     end
-    subgraph R[<div style="width:30em; height:8em; display:flex; justify-content: flex-start;">Raspberry Pi Pico</div>]
+    subgraph R[<div style="display:flex; justify-content: flex-start;">Raspberry Pi Pico</div>]
         I[Pi Pico Init]
-        subgraph PIO [<div style="width:30em; height:8em; display:flex; justify-content: flex-start;">PIO</div>]
+        subgraph PIO [<div style="display:flex; justify-content: flex-start;">PIO</div>]
         A[Offset Square Wave Pulse]
         end
         subgraph Core 1
