@@ -1,0 +1,41 @@
+.program square_wave
+
+; The main loop:
+; 1. Set pin high (1 cycle)
+; 2. Set pin low  (1 cycle)
+; Total period = 2 cycles. Freq = System Clock / 2.
+.wrap_target
+    set pins, 1 
+    set pins, 0 [4] // For a 6m delay loop, this value should be between 3 and 6. 4 and 5 are usually most optimal. -MC
+.wrap
+
+% c-sdk {
+#include "hardware/gpio.h"
+
+static inline void square_wave_program_init(PIO pio, uint sm, uint offset, uint pin) {
+    // 1. Get default config
+    pio_sm_config c = square_wave_program_get_default_config(offset);
+
+    // 2. Map the SET instruction to the chosen pin
+    sm_config_set_set_pins(&c, pin, 1);
+
+    // 3. Set pin direction to OUTPUT in PIO
+    pio_sm_set_consecutive_pindirs(pio, sm, pin, 1, true);
+
+    // 4. Initialize the GPIO for PIO usage
+    pio_gpio_init(pio, pin);
+
+    // 5. MAXIMIZE DRIVER PERFORMANCE (Critical for >100MHz)
+    // Slew rate fast: reduces rise/fall times
+    gpio_set_slew_rate(pin, GPIO_SLEW_RATE_FAST);
+    // Drive strength 12mA: provides more current to overcome capacitance
+    gpio_set_drive_strength(pin, GPIO_DRIVE_STRENGTH_12MA);
+
+    // 5a. edit clock divider IF NEEDED
+    // sm_config_set_clkdiv(&c, 5.0f);
+
+    // 6. Load config and start the state machine
+    pio_sm_init(pio, sm, offset, &c);
+    pio_sm_set_enabled(pio, sm, true);
+}
+%}

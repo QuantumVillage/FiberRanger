@@ -1,0 +1,22 @@
+{
+	"InstallScripts" : 
+	[
+		"/Users/mc/QuantumVillage/Fiber-Ranger/build/_deps/picotool-build/cmake_install.cmake",
+		"/Users/mc/QuantumVillage/Fiber-Ranger/build/_deps/picotool-build/lib/cmake_install.cmake",
+		"/Users/mc/QuantumVillage/Fiber-Ranger/build/_deps/picotool-build/lib/nlohmann_json/cmake_install.cmake",
+		"/Users/mc/QuantumVillage/Fiber-Ranger/build/_deps/picotool-build/lib/whereami/cmake_install.cmake",
+		"/Users/mc/QuantumVillage/Fiber-Ranger/build/_deps/picotool-build/errors/cmake_install.cmake",
+		"/Users/mc/QuantumVillage/Fiber-Ranger/build/_deps/picotool-build/picoboot_connection/cmake_install.cmake",
+		"/Users/mc/QuantumVillage/Fiber-Ranger/build/_deps/picotool-build/elf/cmake_install.cmake",
+		"/Users/mc/QuantumVillage/Fiber-Ranger/build/_deps/picotool-build/elf2uf2/cmake_install.cmake",
+		"/Users/mc/QuantumVillage/Fiber-Ranger/build/_deps/picotool-build/bintool/cmake_install.cmake",
+		"/Users/mc/QuantumVillage/Fiber-Ranger/build/_deps/picotool-build/pico_binary_info/cmake_install.cmake",
+		"/Users/mc/QuantumVillage/Fiber-Ranger/build/_deps/picotool-build/boot_uf2_headers/cmake_install.cmake",
+		"/Users/mc/QuantumVillage/Fiber-Ranger/build/_deps/picotool-build/boot_picoboot_headers/cmake_install.cmake",
+		"/Users/mc/QuantumVillage/Fiber-Ranger/build/_deps/picotool-build/boot_picobin_headers/cmake_install.cmake",
+		"/Users/mc/QuantumVillage/Fiber-Ranger/build/_deps/picotool-build/pico_usb_reset_interface_headers/cmake_install.cmake",
+		"/Users/mc/QuantumVillage/Fiber-Ranger/build/_deps/picotool-build/boot_bootrom_headers/cmake_install.cmake",
+		"/Users/mc/QuantumVillage/Fiber-Ranger/build/_deps/picotool-build/pico_platform/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

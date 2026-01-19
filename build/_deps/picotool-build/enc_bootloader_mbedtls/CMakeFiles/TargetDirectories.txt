@@ -1,0 +1,2 @@
+/Users/mc/QuantumVillage/Fiber-Ranger/build/_deps/picotool-build/enc_bootloader_mbedtls/CMakeFiles/edit_cache.dir
+/Users/mc/QuantumVillage/Fiber-Ranger/build/_deps/picotool-build/enc_bootloader_mbedtls/CMakeFiles/rebuild_cache.dir
