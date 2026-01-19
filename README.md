@@ -19,7 +19,7 @@ flowchart TD
     subgraph R[<div style="width:30em; height:8em; display:flex; justify-content: flex-start;">Raspberry Pi Pico</div>]
         I[Pi Pico Init]
         subgraph PIO [<div style="width:10em; height:8em; display:flex; justify-content: flex-start;">PIO</div>]
-        A[Offset Square Wave Pulse]
+        A[Narrow Pulse Wave]
         end
         subgraph Core 1
         G[Gather Entropy]
