@@ -12,16 +12,36 @@ title: PD-QRNG Process Flow
 ---
 
 flowchart TD
-    A[Offset Square Wave Pulse] -->|Drives| L[Laser Diode]
-    L -->|pulses sent through fiber network| D[Detector]
-    I[Pi Pico Init] -->|Initializes Cores| G[Gather Entropy]
+    subgraph Fiber Optics
+    L[Laser Diode]
+    D[Detector]
+    end
+    subgraph R[<div style="width:30em; height:8em; display:flex; justify-content: flex-start;">Raspberry Pi Pico</div>]
+        I[Pi Pico Init]
+        subgraph PIO
+        A[Offset Square Wave Pulse]
+        end
+        subgraph Core 1
+        G[Gather Entropy]
+        end
+        subgraph Core 2
+        M[Calculate Min-Entropy]
+        S[Generate SHA512 Hashes]
+        U[Send Data over UART]
+        end
+    end
+    I -->|Initializes Cores| G[Gather Entropy]
     I -->|Loads PIO Program| A
     D -->|ADC read| G
-    G -->|Process Data| M[Calculate Min-Entropy]
-    G -->|Load Raw Samples| S[Generate SHA512 Hashes]
-    S --> U[Send Data over UART]
+    G -->|Process Data| M
+    G -->|Load Raw Samples| S
+    S --> U
     M --> U
-    U -->|Restart Loop| G
+    U -->|Go Back for More| G
+    A  -->|Drives| L
+    L e1@==>|pulses sent through fiber network| D
+    e1@{ animate: true }
+
 ```
 
 ## Optical Assembly
