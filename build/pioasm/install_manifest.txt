@@ -1,5 +1,0 @@
-/Users/mc/QuantumVillage/Fiber-Ranger/build/pioasm-install/pioasm/pioasm
-/Users/mc/QuantumVillage/Fiber-Ranger/build/pioasm-install/pioasm/pioasmTargets.cmake
-/Users/mc/QuantumVillage/Fiber-Ranger/build/pioasm-install/pioasm/pioasmTargets-release.cmake
-/Users/mc/QuantumVillage/Fiber-Ranger/build/pioasm-install/pioasm/pioasmConfig.cmake
-/Users/mc/QuantumVillage/Fiber-Ranger/build/pioasm-install/pioasm/pioasmConfigVersion.cmake
