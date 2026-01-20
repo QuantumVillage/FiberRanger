@@ -112,7 +112,9 @@ Here are two zoomed in portions to help show the randomness of the system:
 ![zoomed in 1](oscope-pics/SDS00129.png)
 ![zoomed in 2](oscope-pics/SDS00128.png)
 
-## Sample Serial Output
+## Sample Serial Output
+
+Here is some example output from the UART connection. `H_min` is the output of the min-entropy claculation. ~7.5-8 is considered generally good. `R` is the range, and `Data` precedes two lines of `SHA512` hashes that are the condensed versions of the input entropy pools:
 
 ```bash
 H_min: 8.0000 | R: 1661 | Data: 
