@@ -139,12 +139,12 @@ def main():
     while True:
         current_batch = []
         for _ in range(BATCH_SIZE):
-            # Read ADC (MicroPython returns 16-bit 0-65535, shift to get 12-bit)
-            val = adc.read_u16() >> 4
+            # Read ADC (MicroPython returns 16-bit 0-65535)
+            val = adc.read_u16()
             current_batch.append(val)
             
             # Jitter: busy_wait_us_32(1 + (adc_read() & 0x03))
-            jitter_read = adc.read_u16() >> 4
+            jitter_read = adc.read_u16()
             time.sleep_us(1 + (jitter_read & 0x03))
             
         with queue_lock:

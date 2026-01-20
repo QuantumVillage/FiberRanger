@@ -1,5 +1,6 @@
 build/
 venv/
+RPI_PICO-20251209-v1.27.0.uf2
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
