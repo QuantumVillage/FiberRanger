@@ -45,10 +45,28 @@ flowchart TD
     U ==>|Serial Connection| B
 ```
 
-## Optical Assembly
+## Hardware
+
+### Optical Assembly
 
 ![](images/PD-QRNG.drawio.svg)
 
 This is what the system looks like in hardware:
 
 ![PD-QRNG-v1](images/pd-qrng-v1.jpg)
+
+### Circuit Details
+
+`GPIO0` and `ADC0` are used on the RPi Pico. Here are more details:
+
+* The `3V3` and `GND` pins (3rd and 5th on RHS) are used to power the two fiber modules.
+* Both an A and a B module are used - one transmits at 1310 and recieves at 1510, the other at 1510 and recieves at 1310.
+* Pin 8 on the A module (`TX` positive pin) is used to drive the laser.
+* Pin 2 on the B module (`RX` positive pin) is used to recieve.
+* Between this `RX` pin and the `ADC0` pin, there is a small circuit:
+    * 2x 10k Ohm resistors are used. On is connected to `3V3` and the other to `GND` they form a voltage divider the middle of which is tied to `ADC0`.
+    * 1x 10nF ceramic capacitor is used - this goes from `RX` to `ADC0` that has the voltage lift from the divider. 
+
+The circuit looks like this: 
+
+![Circuit Diag](images/circuit.svg)
