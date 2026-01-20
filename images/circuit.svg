@@ -21,7 +21,7 @@
 	<line x1="270" y1="150" x2="270" y2="190" style="stroke:rgb(0, 0, 0);stroke-linecap:square;stroke-width:2" />
 	<line x1="270" y1="230" x2="270" y2="270" style="stroke:rgb(0, 0, 0);stroke-linecap:square;stroke-width:2" />
 	<rect x="262" y="190" width="16" height="40" style="fill-opacity:0;fill:rgb(0, 0, 0);stroke:rgb(0, 0, 0);stroke-width:2" />
-	<text x="256" y="210" style="font-family:Arial;font-size:11px;text-anchor:end" dominant-baseline="middle" transform="rotate(0, 256, 210)">4.7 kΩ</text>
+	<text x="256" y="210" style="font-family:Arial;font-size:11px;text-anchor:end" dominant-baseline="middle" transform="rotate(0, 256, 210)">10 kΩ</text>
 	<line x1="270" y1="40" x2="270" y2="75" style="stroke:rgb(0, 0, 0);stroke-linecap:square;stroke-width:2" />
 	<line x1="270" y1="115" x2="270" y2="150" style="stroke:rgb(0, 0, 0);stroke-linecap:square;stroke-width:2" />
 	<rect x="262" y="75" width="16" height="40" style="fill-opacity:0;fill:rgb(0, 0, 0);stroke:rgb(0, 0, 0);stroke-width:2" />
