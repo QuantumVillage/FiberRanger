@@ -63,7 +63,7 @@ This is what the system looks like in hardware:
 * Both an A and a B module are used - one transmits at 1310 and recieves at 1510, the other at 1510 and recieves at 1310.
 * Pin 8 on the A module (`TX` positive pin) is used to drive the laser.
 * Pin 2 on the B module (`RX` positive pin) is used to recieve.
-* Between this `RX` pin and the `ADC0` pin, there is a small circuit:
+* Between this `RX` pin and the `ADC0` pin, there is a small circuit that normalizes the voltage from being centered around 0V to being centered around 1.65V. This circuit is comprised of:
     * 2x 10k Ohm resistors are used. On is connected to `3V3` and the other to `GND` they form a voltage divider the middle of which is tied to `ADC0`.
     * 1x 10nF ceramic capacitor is used - this goes from `RX` to `ADC0` that has the voltage lift from the divider. 
 
