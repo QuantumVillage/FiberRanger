@@ -97,7 +97,7 @@ def core1_entry():
         if dynamic_range < 200:
             min_entropy = 0.0
             
-        # Hashing (Using SHA256 as SHA512 is often not available in standard MicroPython)
+        # Hashing (Using SHA256 as SHA512 isn't available in standard MicroPython)
         h1_ctx = uhashlib.sha256()
         h1_ctx.update(batch_bytes)
         hash_out_1 = h1_ctx.digest()
