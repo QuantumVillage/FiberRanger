@@ -21,9 +21,21 @@ ____/\\\\\\\\\__________________________________________________________________
 
 **An open source Phase-Diffusion Quantum Random Number Generator**
 
-## Overview
+## Randomness from Vacuum Fluctuations
 
-Here's an overview of what's going on here:
+When a laser diode powers up, there are quantum fluctuations that occur that later determine the laser's current polarization during operation. This means that if we pulse a laser diode on, then off long enough to let it totally power down, and then repeat, each pulse has unique and 'quantum random'-ly determined properties. 
+
+We can send these pulses into an optical fiber network, and split the pulse so that ~50% goes to the detector, and the rest gets sent to a delay line - here, we use 6m as our photonic delay line. 6m is long enough that with the timing of our pulses (roughly every 30ns) the pulse travelling over the delay loop will interact with the next pulse from the laser diode. 
+
+The fact that each of these are different, and randomly so, means that their interactions are fundamentally chaotic and random. This is great, for a QRNG - and so this is what we estimate and measure. You can see examples of the pulses below. 
+
+Details maybe found in the paper [Ultra-fast quantum randomness
+generation by accelerated phase
+diffusion in a pulsed laser diode](https://opg.optica.org/directpdfaccess/82f11558-cfa9-40df-8c448224852cc1c5_277045/oe-22-2-1645.pdf) by Abellan et al.
+
+## System Overview
+
+Here's an overview flowchart of what's going on in this system:
 
 ```mermaid
 ---
@@ -96,7 +108,7 @@ The circuit looks like this:
 
 The following show some measurement results off a six metre fiber delay loop in a MZI configuration, with a 38MHz base pulse step with 4 sleep steps following. 
 
-Here is the base pulse sent over a 1.5m loop of fiber:
+Here is the base pulse sent over a 1.5m loop of fiber - this shows overarching waveforms that are likely harmonics of the small pulses that they are made up of. 
 
 ![base pulse](oscope-pics/SDS00132.png)
 ![base pulse 2](oscope-pics/SDS00131.png)
