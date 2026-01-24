@@ -78,6 +78,36 @@ flowchart TD
 
 ## Hardware
 
+### Bill of Materials
+
+Optics:
+
+* 2x fiber splitters - 1x2 or 2x2
+* 1x Delay line
+* Optical connectors
+
+For our assembly, we use SC/APC fiber connectors. These are square with angled ends that minimize reflections at any interfaces. 
+
+Electronics:
+
+* 1x Raspberry Pi Pico (or Pico 2)
+* 1x Prototype Board
+* 1x pair of fiber optic transceivers
+* 1x 10nF ceramic capacitor
+* 2x 10k Ohm resistors (through hole)
+* 1x prototyping board
+* Assorted connection wires
+
+Many optical transcievers transmit/receive on 1310/1550nm or tx/rx at 1550/1310nm. (1310nm is in O-band and 1550nm is in C-band in conventional fiber optic parlance). 
+
+### Prototype Board Assembly
+
+The following summarises the pin assignments for the Pico:
+
+* `GPIO0` is used as the laser driver. A PIO program is run to offload this from the CPI.
+* `ADC0` is used to read the data from the receiver, running on core 0
+* The USB port is used to analyse and generate the final randomness and min-entropy outputs, and is controlled from core 1. 
+
 ### Optical Assembly
 
 This is a sketch overview of the RPi pico driver, laser/PD and splitter setup. The Delay Loop used below is 6m in length.
