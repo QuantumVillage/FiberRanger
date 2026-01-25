@@ -138,10 +138,9 @@ The circuit looks like this:
 
 The following show some measurement results off a six metre fiber delay loop in a MZI configuration, with a 38MHz base pulse step with 4 sleep steps following. 
 
-Here is the base pulse sent over a 1.5m loop of fiber - this shows overarching waveforms that are likely harmonics of the small pulses that they are made up of. 
+Here is the base pulse sent over a 1.5m loop of fiber - 
 
-![base pulse](oscope-pics/SDS00132.png)
-![base pulse 2](oscope-pics/SDS00131.png)
+![base pulse](oscope-pics/SDS00137.png)
 
 Here is the base pulse going over the interferometery setup but with the delay loop disconnected:
 
@@ -153,8 +152,10 @@ And here is the full output from the `RX` pin sent to the ADC:
 
 Here are two zoomed in portions to help show the randomness of the system:
 
-![zoomed in 1](oscope-pics/SDS00129.png)
-![zoomed in 2](oscope-pics/SDS00128.png)
+![zoomed in 20us](oscope-pics/SDS00140.png)
+![zoomed in 100ns](oscope-pics/SDS00129.png)
+![zoomed in 100ns v2](oscope-pics/SDS00128.png)
+
 
 ## Sample Serial Output
 
