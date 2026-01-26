@@ -110,7 +110,7 @@ The following summarises the pin assignments for the Pico:
 
 ### Optical Assembly
 
-This is a sketch overview of the RPi pico driver, laser/PD and splitter setup. The Delay Loop used below is 6m in length.
+This is a sketch overview of the RPi pico driver, laser/PD and splitter setup. The Delay Loop used below is 5m in length.
 
 ![](images/PD-QRNG.drawio.svg)
 

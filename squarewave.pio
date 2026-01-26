@@ -6,7 +6,7 @@
 ; Total period = 2 cycles. Freq = System Clock / 2.
 .wrap_target
     set pins, 1 
-    set pins, 0 [4] // For a 6m delay loop, this value should be between 3 and 6. 4 and 5 are usually most optimal. -MC
+    set pins, 0 [4] // For a 5m delay loop, this value should be between 3 and 6. 4 and 5 are usually most optimal. -MC
 .wrap
 
 % c-sdk {
