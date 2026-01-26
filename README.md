@@ -25,7 +25,7 @@ ____/\\\\\\\\\__________________________________________________________________
 
 When a laser diode powers up, there are quantum fluctuations that occur that later determine the laser's current polarization during operation. This means that if we pulse a laser diode on, then off long enough to let it totally power down, and then repeat, each pulse has unique and 'quantum random'-ly determined properties. 
 
-We can send these pulses into an optical fiber network, and split the pulse so that ~50% goes to the detector, and the rest gets sent to a delay line - here, we use 6m as our photonic delay line. 6m is long enough that with the timing of our pulses (roughly every 30ns) the pulse travelling over the delay loop will interact with the next pulse from the laser diode. 
+We can send these pulses into an optical fiber network, and split the pulse so that ~50% goes to the detector, and the rest gets sent to a delay line - here, we use 5m length of fiber as our photonic delay line. 5m is long enough that with the timing of our pulses (roughly every 24ns) the pulse travelling over the delay loop will interact with the next pulse from the laser diode. 
 
 The fact that each of these are different, and randomly so, means that their interactions are fundamentally chaotic and random. This is great, for a QRNG - and so this is what we estimate and measure. You can see examples of the pulses below. 
 
@@ -80,15 +80,15 @@ flowchart TD
 
 ### Bill of Materials
 
-Optics:
+**Optics:**
 
 * 2x fiber splitters - 1x2 or 2x2
-* 1x Delay line
+* 1x Delay line (5 meters)
 * Optical connectors
 
 For our assembly, we use SC/APC fiber connectors. These are square with angled ends that minimize reflections at any interfaces. 
 
-Electronics:
+**Electronics:**
 
 * 1x Raspberry Pi Pico (or Pico 2)
 * 1x Prototype Board
