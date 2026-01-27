@@ -219,7 +219,7 @@ This is a much zoomed in signal from the reciever:
 
 ![](oscope-pics/SDS00152.png)
 
-### But How do we Know It's Quantum?
+## But How do we Know It's Quantum?
 
 Suppose we take our transciever setup, and run the Pico as normal. Then let's hook it up to the two splitters. If we just connect one of the fibers between the two, we get the following output trace:
 
