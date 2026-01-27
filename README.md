@@ -76,6 +76,64 @@ flowchart TD
     U ==>|Serial Connection| B
 ```
 
+### Software Overview
+
+There are three parts to this system; the PIO program, the ADC acquisition code, and the min-entropy calculation and hashing code communicating over UART over USB.
+
+The Pi Pico is overclocked to its maximum speed of 250MHz. This gives us 125MHz maximum pulse frequency, However, given the laser diode has to completely desaturate between pulses in order for the vacuum fluctuations to be utilized, we pulse once for 4ns, then rest for 20ns. Whilst this ends up requiring a longer delay line, it amplifies the effect we are trying to utilize by guaranteeing desaturation of the emitter. 
+
+The PIO code sets is as follows:
+
+```c
+.wrap_target
+    set pins, 1 
+    set pins, 0 [4]
+.wrap
+```
+
+The code on core 0 is the ADC acquisition code. It reads the signal that is biased at 1.65V, exactly in the center of the Pico's 3.3V ADC range. The ADC is 12-bit, meaning our readings are centered around the value 2048, with a maximum of 4096. The ADC measurements are collected in window arrays of length 1024 `int` values, and passed through a blocking write to an array owned by core 1. 
+
+Core 1 runs the min-entropy calculation code and manages UART communications. It performs an optimized min-entropy calculation that performs a lagged look-around analysis to generate a histogram of delta difference values for each of the measurements. This normalizes the calculation from being 'peak heavy' from the pulsed nature of the randomness, and attempts to avoid any incidental features from the 500kHz max speed of the Pico's ADC. Given we are using a window of 1024 (2^10) samples, the maximum value for min-entropy is 10. The min-entropy calculation code is as follows:
+
+```c
+for(int i = 0; i < BATCH_SIZE; i++) {
+    // Mask to ensure we only look at 12 bits
+    uint16_t val = batch.samples[i] & 0xFFF;
+    
+    // --- Update Min/Max (Raw Data) ---
+    if (val < min_val) min_val = val;
+    if (val > max_val) max_val = val;
+    // ---------------------------
+
+    // --- LAGGED DERIVATIVE CALCULATION ---
+    // 1. Get the "Old" value from history
+    uint16_t old_val = history[hist_head];
+    
+    // 2. Overwrite history with current value
+    history[hist_head] = val;
+    
+    // 3. Advance the ring buffer head
+    hist_head = (hist_head + 1) % LAG_DEPTH;
+
+    // 4. Calculate Delta against the OLD value
+    // We add 2048 to center the result.
+    uint16_t delta = (val - old_val + 2048) & 0xFFF;
+    // -------------------------------------
+
+    // Update Histogram using DELTA
+    if(counts[delta] < 65535) counts[delta]++; 
+    if(counts[delta] > max_count) {
+        max_count = counts[delta];
+    }
+}
+
+// Calculate Min-Entropy
+float min_entropy = 10.0f - log2f((float)max_count);
+
+// Calculate Range
+uint16_t dynamic_range = max_val - min_val;
+```
+
 ## Hardware
 
 ### Bill of Materials
