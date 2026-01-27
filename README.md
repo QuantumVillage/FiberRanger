@@ -212,13 +212,40 @@ Here are two zoomed in portions to help show the randomness of the system:
 
 ![zoomed in 20us](oscope-pics/SDS00140.png)
 ![soomed in 200ns](oscope-pics/SDS00153.png)
-![zoomed in 100ns](oscope-pics/SDS00129.png)
-![zoomed in 100ns v2](oscope-pics/SDS00128.png)
+<!-- ![zoomed in 100ns](oscope-pics/SDS00129.png)
+![zoomed in 100ns v2](oscope-pics/SDS00128.png) -->
 
 This is a much zoomed in signal from the reciever:
 
 ![](oscope-pics/SDS00152.png)
 
+### But How do we Know It's Quantum?
+
+Suppose we take our transciever setup, and run the Pico as normal. Then let's hook it up to the two splitters. If we just connect one of the fibers between the two, we get the following output trace:
+
+![](oscope-pics/SDS00162.png)
+
+However, if we add both fibers, we get the following trace:
+
+![](oscope-pics/SDS00161.png)
+
+The fact that these are so similar is encouraging, as it means that the two signals are either matching, cancelling out, or adding some more noise from the few extra lengths of fiber.
+
+The following is the output when you add the delay line back between one of the connections between the splitters - the dramatic change in the signal despite the same oscilloscope settings means that we are surely seeing some kind of quantum interference resulting from the vacuum fluctuations in the laser diode startup:
+
+![](oscope-pics/SDS00163.png)
+
+We can look at some zoomed-in versions to see the difference. Here is the signal with one connection between the splitters:
+
+![](oscope-pics/SDS00155.png)
+
+Here is the signal zoomed-in with two arms connected - we can see that the signal is in part amplified and in others slightly variable:
+
+![](oscope-pics/SDS00156.png)
+
+With the delay line included, we can see the randomness in the signal from the interference of the non-matching laser pulses:
+
+![](oscope-pics/SDS00157.png)
 
 ## Sample Serial Output
 
