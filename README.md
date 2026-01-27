@@ -229,3 +229,7 @@ ff9bea46b4f8588a74c913e9590faba7d92536ca1001d34fb405d184407c052d3c2e80a60182b505
 ## Conclusion
 
 This project has showed the potential for low cost, high performance, field-ready designs for PD-QRNG.
+
+## References
+
+The primary refernce is Abellan _et al._ "Ultrafast Quantum Randomness Generation by Accelerated Phase Diffusion in a pulsed laser diode", 2014, link: https://opg.optica.org/directpdfaccess/00ca77ad-84db-4fe1-9f0385ca69f37b45_277045/oe-22-2-1645.pdf
