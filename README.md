@@ -31,7 +31,7 @@ The fact that each of these are different, and randomly so, means that their int
 
 Details maybe found in the paper [Ultra-fast quantum randomness
 generation by accelerated phase
-diffusion in a pulsed laser diode](https://opg.optica.org/directpdfaccess/82f11558-cfa9-40df-8c448224852cc1c5_277045/oe-22-2-1645.pdf) by Abellan et al.
+diffusion in a pulsed laser diode](https://opg.optica.org/oe/fulltext.cfm?uri=oe-22-2-1645) by Abellán et al.
 
 ## System Overview
 
@@ -317,6 +317,6 @@ This project has showed the potential for low cost, high performance, field-read
 
 ## References
 
-The primary refernce is Abellan _et al._ "Ultrafast Quantum Randomness Generation by Accelerated Phase Diffusion in a pulsed laser diode", 2014, link: https://opg.optica.org/directpdfaccess/00ca77ad-84db-4fe1-9f0385ca69f37b45_277045/oe-22-2-1645.pdf
+The primary refernce is Abellán et al. "Ultrafast Quantum Randomness Generation by Accelerated Phase Diffusion in a pulsed laser diode", 2014, link: https://opg.optica.org/oe/fulltext.cfm?uri=oe-22-2-1645.
 
-A secondary reference, "Quantum Entropy Source on an InP Photonic Integrated Circuit for Random Number Generation" by Abellan _et al._ is good resource for understanding vacuum fluctuations, and how they can be utilized; Link: https://opg.optica.org/optica/fulltext.cfm?uri=optica-3-9-989 
+A secondary reference, "Quantum Entropy Source on an InP Photonic Integrated Circuit for Random Number Generation" by Abellán et al. is good resource for understanding vacuum fluctuations, and how they can be utilized; Link: https://opg.optica.org/optica/fulltext.cfm?uri=optica-3-9-989.
