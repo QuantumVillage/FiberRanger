@@ -317,6 +317,6 @@ This project has showed the potential for low cost, high performance, field-read
 
 ## References
 
-The primary refernce is Abellán et al. "Ultrafast Quantum Randomness Generation by Accelerated Phase Diffusion in a pulsed laser diode", 2014, link: https://opg.optica.org/oe/fulltext.cfm?uri=oe-22-2-1645.
+The primary reference is Abellán et al. "Ultrafast Quantum Randomness Generation by Accelerated Phase Diffusion in a pulsed laser diode", 2014, link: https://opg.optica.org/oe/fulltext.cfm?uri=oe-22-2-1645.
 
 A secondary reference, "Quantum Entropy Source on an InP Photonic Integrated Circuit for Random Number Generation" by Abellán et al. is good resource for understanding vacuum fluctuations, and how they can be utilized; Link: https://opg.optica.org/optica/fulltext.cfm?uri=optica-3-9-989.
