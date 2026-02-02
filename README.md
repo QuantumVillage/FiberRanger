@@ -249,7 +249,7 @@ With the delay line included, we can see the randomness in the signal from the i
 
 ## Sample Serial Output
 
-Here is some example output from the UART connection. `H_min` is the output of the min-entropy claculation. ~7.5-8 is considered generally good. `R` is the range, and `Data` precedes two lines of `SHA512` hashes that are the condensed versions of the input entropy pools:
+Here is some example output from the UART connection. `H_min` is the output of the min-entropy calculation. ~7.5-8 is considered generally good. `R` is the range, and `Data` precedes two lines of `SHA512` hashes that are the condensed versions of the input entropy pools:
 
 ```bash
 H_min: 8.4150 | R: 2143 | Data: 
