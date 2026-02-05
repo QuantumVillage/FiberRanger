@@ -29,9 +29,7 @@ We can send these pulses into an optical fiber network, and split the pulse so t
 
 The fact that each of these are different, and randomly so, means that their interactions are fundamentally chaotic and random. This is great, for a QRNG - and so this is what we estimate and measure. You can see examples of the pulses below. 
 
-Details maybe found in the paper [Ultra-fast quantum randomness
-generation by accelerated phase
-diffusion in a pulsed laser diode](https://opg.optica.org/oe/fulltext.cfm?uri=oe-22-2-1645) by Abellán et al.
+Details maybe found in the paper [Ultra-fast quantum randomness generation by accelerated phase diffusion in a pulsed laser diode](https://opg.optica.org/oe/fulltext.cfm?uri=oe-22-2-1645) by Abellán et al.
 
 ## System Overview
 
@@ -181,16 +179,45 @@ This is what the system looks like in hardware:
 `GPIO0` and `ADC0` are used on the RPi Pico. Here are more details:
 
 * The `3V3` and `GND` pins (3rd and 5th on RHS) are used to power the two fiber modules.
-* Both an A and a B module are used - one transmits at 1310 and recieves at 1510, the other at 1510 and recieves at 1310.
+* Both an A and a B module are used - one transmits at 1310 and receives at 1510, the other at 1510 and receives at 1310.
 * Pin 8 on the A module (`TX` positive pin) is used to drive the laser.
-* Pin 2 on the B module (`RX` positive pin) is used to recieve.
+* Pin 2 on the B module (`RX` positive pin) is used to receive.
 * Between this `RX` pin and the `ADC0` pin, there is a small circuit that normalizes the voltage from being centered around 0V to being centered around 1.65V. This circuit is comprised of:
     * 2x 10k Ohm resistors are used. On is connected to `3V3` and the other to `GND` they form a voltage divider the middle of which is tied to `ADC0`.
     * 1x 10nF ceramic capacitor is used - this goes from `RX` to `ADC0` that has the voltage lift from the divider. 
 
-The circuit looks like this: 
+The circuit schematic for the output level shifter looks like this: 
 
 ![Circuit Diag](images/circuit.svg)
+
+## Bill of Materials
+
+The full BOM is as follows:
+
+1. 1x PAIR Fiber Transcievers - e.g. https://www.aliexpress.com/item/1005005938443917.html
+1. 1x 5m fiber patch cable - e.g. https://www.aliexpress.com/item/1005008760544957.html
+1. 2x 1x2 50/50 fiber splitters - e.g. https://www.aliexpress.com/item/1005006647801937.html 
+1. 3x SC/APC Fiber Couplers - e.g. https://www.aliexpress.com/item/1005008790973325.html
+1. 1x Raspberry Pi Pico
+1. 1x Prototyping board
+1. 2x 10k Ohm Resistors
+1. 1x 10nF ceramic capacitor
+
+### Note on Fiber Choices
+
+For our build, we use SC/APC fiber connector parts - these are usually green in colour. SC Connectors are very easy to use and reconfigure, hence they were chosen. Blue SC connectors are UPC, meaning they have flat ends which can cause reflections of signal. SC/APC connectors have an 8 degree angle cut on the end to minimize reflections, which is ideal for our purposes. Yellow fiber cabling is usually patch fiber, which is what we want to use. We use multimode 9/125 fiber in this build - that is 125um diameter with a 9um core. 
+
+The transcievers we use are usually multimode - that is they have one side that transmits on 1310nm and receives on 1510nm frequencies, and the other side receives on 1310nm and transmits on 1510nm light frequencies. We use 1310nm for Tx/Rx, but the choice of which frequency to use is inconsequential.
+
+## Full Build
+
+### Transiever Pinout
+
+The pinout for each transceiver unit is as follows. Pin 1 is the left-most pin when looking down on the top of the device with the fiber pointing away from you. The pinout is as follows:
+
+![pinout](images/transceiver-pinout.avif)
+
+We will just use the `RD+` and `TD+` pins for Rx/Tx respectively. Note that you have to supply +3.3V to BOTH VCC pins as they are not joined (separate TX and RX power).
 
 ## Results 
 
@@ -215,7 +242,7 @@ Here are two zoomed in portions to help show the randomness of the system:
 <!-- ![zoomed in 100ns](oscope-pics/SDS00129.png)
 ![zoomed in 100ns v2](oscope-pics/SDS00128.png) -->
 
-This is a much zoomed in signal from the reciever:
+This is a much zoomed in signal from the receiver:
 
 ![](oscope-pics/SDS00152.png)
 
