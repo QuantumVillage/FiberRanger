@@ -217,7 +217,25 @@ The pinout for each transceiver unit is as follows. Pin 1 is the left-most pin w
 
 ![pinout](images/transceiver-pinout.avif)
 
-We will just use the `RD+` and `TD+` pins for Rx/Tx respectively. Note that you have to supply +3.3V to BOTH VCC pins as they are not joined (separate TX and RX power).
+We will just use the `RD+` and `TD+` pins for Rx/Tx respectively. Note that you have to supply +3.3V to EITHER the `VCCR` on the Rx side and `VCCT` on the Tx side, as they have separate power supplies.
+
+### Build Overview
+
+The Pi Pico uses `ADC0` for Rx and `GPIO0` for Tx - with the 3.3V supply and GND pins powering the units. The overall wiring looks like this from below:
+
+![wiring1](images/20260203_150119-EDIT.jpg)
+
+Here is the top view - you can see how the voltage divider and ceramic capacitor:
+
+![wiring2](images/20260205_091957~2.jpg)
+
+The capacitor is tied to one side on pin 2 of the receive module, and the other side is tied to the joint between the two resistors in the voltage divider. The push pull of the Rx signal is thereby inverted over the capacitor and shifted to 1.65V, which is the precise middle of the 3.3V `ADC0` range. 
+
+### Fiber Build
+
+The fiber is built exactly as photographed above. The setup is symmetrical, so there is no specified in/out or tx/rx port. The two free ports go to either module.
+
+Remember, the fiber network is essentially an amplifier for the quantum vacuum fluctuations in the laser diode startup.
 
 ## Results 
 
