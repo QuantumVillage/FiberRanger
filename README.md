@@ -292,7 +292,7 @@ With the delay line included, we can see the randomness in the signal from the i
 
 ![](oscope-pics/SDS00157.png)
 
-### PIO Signal to Output
+### Comparison of PIO Signal to Output
 
 Here is the base signal with the base pulse in purple:
 
