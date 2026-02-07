@@ -292,6 +292,18 @@ With the delay line included, we can see the randomness in the signal from the i
 
 ![](oscope-pics/SDS00157.png)
 
+### PIO Signal to Output
+
+Here is the base signal with the base pulse in purple:
+
+![base1](oscope-pics/SDS00168.png)
+
+Here is the baseline random signal from the interference with the baseline signal in purple again:
+
+![base1](oscope-pics/SDS00167.png)
+
+Note that there is a 'peak-y-ness' in the signal that correlates with the baseline somewhat. This is why we use jittered readings to avoid falling into traps around that potential correlation. 
+
 ## Sample Serial Output
 
 Here is some example output from the UART connection. `H_min` is the output of the min-entropy calculation. ~7.5-8 is considered generally good. `R` is the range, and `Data` precedes two lines of `SHA512` hashes that are the condensed versions of the input entropy pools:
