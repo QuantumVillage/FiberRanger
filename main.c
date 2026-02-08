@@ -80,7 +80,7 @@ void core1_entry() {
 
         for(int i = 0; i < BATCH_SIZE; i++) {
             // Mask to ensure we only look at 12 bits
-            uint16_t val = batch.samples[i] & 0xFFF;
+            uint16_t val = batch.samples[i];
             
             // --- Update Min/Max (Raw Data) ---
             if (val < min_val) min_val = val;
@@ -99,7 +99,7 @@ void core1_entry() {
 
             // 4. Calculate Delta against the OLD value
             // We add 2048 to center the result.
-            uint16_t delta = (val - old_val + 2048) & 0xFFF;
+            uint16_t delta = (val - old_val + 2048);
             // -------------------------------------
 
             // Update Histogram using DELTA
@@ -111,6 +111,8 @@ void core1_entry() {
 
         // Calculate Min-Entropy
         float min_entropy = 10.0f - log2f((float)max_count);
+        // scale for 8-bit min-entropy - for 10.0f it's 8/10.0
+        min_entropy *= (8.0/10.0);
         
         // Calculate Range
         uint16_t dynamic_range = max_val - min_val;
