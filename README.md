@@ -127,6 +127,8 @@ for(int i = 0; i < BATCH_SIZE; i++) {
 
 // Calculate Min-Entropy
 float min_entropy = 10.0f - log2f((float)max_count);
+// scale for 8-bit min-entropy - for 10.0f it's 8/10.0
+min_entropy *= (8.0/10.0);
 
 // Calculate Range
 uint16_t dynamic_range = max_val - min_val;
