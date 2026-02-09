@@ -334,10 +334,82 @@ Calculating >2 digits of pi with randomness is pretty hard - this is for the sam
 
 On this test suite, the randomness is performing pretty well, it seems!
 
+### NIST STS
+
+This is a gold-standard test suite from the NIST standardization people. Here is the output of the full run, showing what parameters were used with `sts-2.1.2` version:
+
+```
+user@qrng:~/nist/sts-2.1.2/sts-2.1.2$ ./assess 1000000
+           G E N E R A T O R    S E L E C T I O N 
+           ______________________________________
+
+    [0] Input File                 [1] Linear Congruential
+    [2] Quadratic Congruential I   [3] Quadratic Congruential II
+    [4] Cubic Congruential         [5] XOR
+    [6] Modular Exponentiation     [7] Blum-Blum-Shub
+    [8] Micali-Schnorr             [9] G Using SHA-1
+
+   Enter Choice: 0
+
+
+                User Prescribed Input File: data.bin
+
+                S T A T I S T I C A L   T E S T S
+                _________________________________
+
+    [01] Frequency                       [02] Block Frequency
+    [03] Cumulative Sums                 [04] Runs
+    [05] Longest Run of Ones             [06] Rank
+    [07] Discrete Fourier Transform      [08] Nonperiodic Template Matchings
+    [09] Overlapping Template Matchings  [10] Universal Statistical
+    [11] Approximate Entropy             [12] Random Excursions
+    [13] Random Excursions Variant       [14] Serial
+    [15] Linear Complexity
+
+         INSTRUCTIONS
+            Enter 0 if you DO NOT want to apply all of the
+            statistical tests to each sequence and 1 if you DO.
+
+   Enter Choice: 1
+
+        P a r a m e t e r   A d j u s t m e n t s
+        -----------------------------------------
+    [1] Block Frequency Test - block length(M):         128
+    [2] NonOverlapping Template Test - block length(m): 9
+    [3] Overlapping Template Test - block length(m):    9
+    [4] Approximate Entropy Test - block length(m):     10
+    [5] Serial Test - block length(m):                  16
+    [6] Linear Complexity Test - block length(M):       500
+
+   Select Test (0 to continue): 0
+
+   How many bitstreams? 200
+
+   Input File Format:
+    [0] ASCII - A sequence of ASCII 0's and 1's
+    [1] Binary - Each byte in data file contains 8 bits of data
+
+   Select input mode:  1
+
+     Statistical Testing In Progress.........
+
+```
+
+The results are in `20260209-finalAnalysisReport-nist-sts-2.1.2-1000000-200.txt`. Some notes:
+
+* `0.474986 200/200` for Approximate Entropy is a perfect score
+* The Universal test (compressibility) has a very fine score at `0.930026 197/200`
+* Generally, results are >= 193/200.
+* `Frequency: 197/200` is a strong result.
+* `Runs: 200/200` (The "Coin Flip" consistency is perfect)
+* `FFT: 198/200` (No periodic sine-wave noise detected)
+* `Linear Complexity: 199/200` (Mathematically complex)
+
+This is a pretty reliable showing in the NIST STS tests!
 
 ## Sample Serial Output
 
-Here is some example output from the UART connection. `H_min` is the output of the min-entropy calculation. ~7.5-8 is considered generally good. `R` is the range, and `Data` precedes two lines of `SHA512` hashes that are the condensed versions of the input entropy pools:
+Here is some example output from the UART connection. `H_min` is the output of the min-entropy calculation. When scaled to 8 bits, ~6-6.4 is considered generally good. `R` is the range, and `Data` precedes two lines of `SHA512` hashes that are the condensed versions of the input entropy pools:
 
 ```bash
 H_min: 6.4000 | R: 1918 | Data: 
