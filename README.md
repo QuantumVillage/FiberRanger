@@ -304,6 +304,37 @@ Here is the baseline random signal from the interference with the baseline signa
 
 Note that there is a 'peak-y-ness' in the signal that correlates with the baseline somewhat. This is why we use jittered readings to avoid falling into traps around that potential correlation. 
 
+## Entropy Tests
+
+### Running `ent`
+
+On a file with 256 million raw bytes converted from the input, the following result was obtained from running the `ent` entropy test suite, a standard tool in Linux:
+
+```bash
+user@qrng:~$ ls -l qrng_dump.bin 
+-rw-rw-r-- 1 user user 256000000 Feb  4 14:28 qrng_dump.bin
+user@qrng:~$ ent -b ./qrng_dump.bin 
+Entropy = 1.000000 bits per bit.
+
+Optimum compression would reduce the size
+of this 2048000000 bit file by 0 percent.
+
+Chi square distribution for 2048000000 samples is 0.15, and randomly
+would exceed this value 69.96 percent of the times.
+
+Arithmetic mean value of data bits is 0.5000 (0.5 = random).
+Monte Carlo value for Pi is 3.141611487 (error 0.00 percent).
+Serial correlation coefficient is 0.000025 (totally uncorrelated = 0.0).
+user@qrng:~$ 
+```
+
+Things of note - Entropy of "around 1 bit per bit" is ideal. Chi-squared values need to be between 0.05 and 0.95, so 0.65 is pretty reasonable. Serial correlation less than 0.00005 is usually considered pretty good, too. 
+
+Calculating >2 digits of pi with randomness is pretty hard - this is for the same reason that `22/7` is such an unreasonably good approximation of pi; the continued fraction of pi has a very large term (292) in it's fourth coefficient (`[3;7,15,1,292...]`). This means that getting `3.1416` vs `3.1415...` (0.0001 off) on a reasonably small dataset is encouraging. 
+
+On this test suite, the randomness is performing pretty well, it seems!
+
+
 ## Sample Serial Output
 
 Here is some example output from the UART connection. `H_min` is the output of the min-entropy calculation. ~7.5-8 is considered generally good. `R` is the range, and `Data` precedes two lines of `SHA512` hashes that are the condensed versions of the input entropy pools:
