@@ -393,6 +393,8 @@ user@qrng:~/nist/sts-2.1.2/sts-2.1.2$ ./assess 1000000
 
      Statistical Testing In Progress.........
 
+     Statistical Testing Complete!!!!!!!!!!!!
+
 ```
 
 The results are in `20260209-finalAnalysisReport-nist-sts-2.1.2-1000000-200.txt`. Some notes:
