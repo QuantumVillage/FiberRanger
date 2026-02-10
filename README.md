@@ -399,7 +399,7 @@ user@qrng:~/nist/sts-2.1.2/sts-2.1.2$ ./assess 1000000
 
 ```
 
-The results are in `20260209-finalAnalysisReport-nist-sts-2.1.2-1000000-200.txt`. Some notes:
+The results are in [`20260209-finalAnalysisReport-nist-sts-2.1.2-1000000-200.txt`](20260209-finalAnalysisReport-nist-sts-2.1.2-1000000-200.txt). Some notes:
 
 * `0.474986 200/200` for Approximate Entropy is a perfect score
 * The Universal test (compressibility) has a very fine score at `0.930026 197/200`
